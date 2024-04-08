@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Vendor CSS Files -->
+       <link href="assests/lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+      <link href="assests/lib/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+      <!-- custom css -->
+      <link href="assests/css/style.css" rel="stylesheet">
+      <link href="assests/css/responsive.css" rel="stylesheet">
+    
+      <!-- favicon -->
+      <link rel="icon" type="image/x-icon" href="assests/images/favicon.png">
+    
+      <!-- js file -->
+      <script src="assests/js/scripts.js"></script>
+    
+      <!-- icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/js/all.min.js" integrity="sha512-Vj8+PCEHpQ8EhoqHQdDXTyeW/WBIzX1/yo+0BKx9zuzcWvMtHM9R3e3PlZC6wCf3Zs8S3C6MOmfU1szq5d8xJw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+   
+
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+      <script src="assests/lib/bootstrap/js/bootstrap.bundle.min.js"></script>
+    
+      <title>Insmed</title>
+
+    </head>
+<body>
+
+
+
+<header>
+    <div class="container-fluid header-conmtainer-align ">
+        <div class="header-flexing">
+            <div class="header-flex-one">
+                <img src="assests/images/logo-white.svg" width="135px">
+            </div>
+            <div class="header-flex-two">
+                <h4 class="h4-headers"style="margin-bottom: 0px;">Compliance Document Summarizer</h4>
+            </div>
+            <div class="header-flex-three">
+                <a class="a-header-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Info"  data-bs-custom-class="custom-tooltip"><i class="fa fa-info-circle"></i></a>
+                <a class="a-header-btn" data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Contact-Us"  data-bs-custom-class="custom-tooltip"><i class="fa fa-envelope"></i></a>
+                <a class="a-header-btn"data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Sample"  data-bs-custom-class="custom-tooltip"><i class="fa fa-sign-in"></i></a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="forms-section"  style="margin-top: 50px; margin-bottom: 50px;">
+    <div class="container all-box">
+        <div class="files-uploades text-center" onclick="triggerFileInput()">
+            <img src="assests/images/cloud.webp" width="100px">
+            <p>Drop Your document here, or <span style="color: #440099;">browse</span></p>
+            <p>Supports PDF,DOCX</p>
+        </div>
+
+        <input type="file" id="fileInput" style="display: none;" multiple onchange="displaySelectedFiles()">
+
+        <div class="row mt-5 wole-formin" id="whole-forming">
+            <div class="col-lg-12">
+                <div class="form-floating mb-3">
+                    <input type="email" class="form-control" placeholder="user input">
+                    <label>User Input</label>
+                  </div>           
+            </div>
+            <div class="col-lg-6">
+                <div class="form-floating  rel-selct mb-3">
+                    <select class="form-select">
+                      <option selected disabled>Model</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    <label>Model Name</label>
+
+                    <div class="ab-selec">
+                        <span class="btn btn-secs"><i class="fa fa-eye"></i></span>
+                    </div>
+                </div>
+                <div class="modal-opened" style="display: none;">
+                    <textarea class="form-control textarea-width"></textarea>
+                    <div class="text-absol">
+                        <span class="btn btn-secs"><i class="fa fa-edit"></i></span>
+                        <span class="btn btn-secs"><i class="fa fa-times-circle"></i></span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mb-4">
+                
+                <label>Temperature</label>
+                <div class="range-rela">
+                    <input type="range" class="form-range" min="0" max="5" step="0.5" id="customRange3">
+                    <div class="range-absolu">     
+                        <div class="text-spa">
+                            <p>0</p>
+                            <p>0.5</p>
+                            <p>1</p>
+                        </div>
+                    </div>
+                </div>
+                  
+            </div>
+        </div>
+
+        <div class="mt-4 next-sec" onclick="toggleResponse()">    
+            <button class="btn btn-sec" id="submitButton"><i class="fa fa-send-o"></i>Submit</button>
+        </div>
+
+       <!-- <div class="loade"> 
+        <div class="book">
+          <div class="page"></div>
+          <div class="page backPage"></div>
+          <div class="page pageFlip"></div>
+          <div class="page pageFlip"></div>
+          <div class="page pageFlip"></div>
+        </div>
+     
+      </div> -->
+
+<div class="all-loader-new"  id="loader" style="display: none;">
+      <div class="book">
+        <div class="inner">
+          <div class="left"></div>
+          <div class="middle"></div>
+          <div class="right"></div>
+        </div>
+        <ul>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+    </div>
+
+
+        <div class="response mt-5" id="responseDiv" style="display: none;">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Architecto quae ducimus, cupiditate non consectetur, necessitatibus assumenda velit quia officiis delectus nisi cumque fuga veritatis? Placeat numquam dolorem explicabo qui quis!
+
+            </p>
+            <div class="button-last mt-4">
+                <button class="btn btn-sec"  data-bs-toggle="tooltip" data-bs-placement="bottom" data-bs-title="Copy to Clipboard"  data-bs-custom-class="custom-tooltips">
+                    <i class="fa fa-clipboard"></i></button>
+                <button class="btn btn-sec"  id="clickMe">
+                    <i class="fa fa-file"></i>
+                </button>
+             
+            </div>
+             
+        </div>
+
+        <div id="menu" class="align-uls" style="display: none;">
+        <ul  class="list-group" >
+            <li class="list-group-item li-ul-list">Save PDF</li>
+            <li class="list-group-item li-ul-list">Download PDF</li>
+            </ul>
+        </div>
+       
+    </div>
+</section>
+
+
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var spanTag = document.querySelector('.ab-selec .btn-secs');
+        var modalOpenedDiv = document.querySelector('.modal-opened');
+
+        // Prevent hiding the select tag when clicking on the span tag
+        spanTag.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent event from bubbling up
+            modalOpenedDiv.style.display = 'block'; // Show the modal-opened div
+        });
+    });
+</script>
+
+
+  <script>
+    $(document).ready(function(){
+        // Function to show loader
+        function showLoader() {
+            $("#loader").show(); // Show the loader
+        }
+
+        // Function to hide loader
+        function hideLoader() {
+            $("#loader").hide(); // Hide the loader
+        }
+
+        $("#submitButton").click(function(){
+            // Show loader when submit button is clicked
+            showLoader();
+
+            // Show the response div
+            $("#responseDiv").fadeIn();
+
+            // Hide loader after some time (you can adjust this as needed)
+            setTimeout(function() {
+                hideLoader();
+            }, 5000); // Adjust the time as needed
+        });
+
+        // Initially hide the response div
+        $("#responseDiv").hide();
+    });
+  </script>
+
+    
+  <script>
+    const tooltipTriggerList = document.querySelectorAll('[data-bs-toggle="tooltip"]')
+    const tooltipList = [...tooltipTriggerList].map(tooltipTriggerEl => new bootstrap.Tooltip(tooltipTriggerEl))
+  </script>
+
+<script>
+$(document).ready(function(){
+  $("#clickMe").click(function(){
+    $("#menu").slideToggle();
+  });
+});
+</script>
+
+
+
+<script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get the elements
+            var savePDFButton = document.querySelector('.li-ul-list');
+            var responseDiv = document.querySelector('.response');
+
+            // Add click event listener to the "Save PDF" button
+            savePDFButton.addEventListener('click', function() {
+                // Show the response div
+                responseDiv.style.display = 'block';
+                
+                // Copy the content of the response div
+                var range = document.createRange();
+                range.selectNode(responseDiv);
+                window.getSelection().removeAllRanges();
+                window.getSelection().addRange(range);
+                
+                try {
+                    // Copy the selected content
+                    var successful = document.execCommand('copy');
+                    var msg = successful ? 'successful' : 'unsuccessful';
+                    console.log('Content copy attempt was ' + msg);
+                    // Notify the user that content has been copied
+                    alert('Content has been copied');
+                } catch(err) {
+                    console.log('Unable to copy content');
+                }
+                
+                // Clear the selection
+                window.getSelection().removeAllRanges();
+            });
+        });
+</script>
+
+
+
+</body>
+</html>

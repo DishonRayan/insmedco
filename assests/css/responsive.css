@@ -1,0 +1,35 @@
+
+@media only screen and (max-width:767px){
+    
+.header-flex-one{
+    width: auto !important;
+}
+
+.header-flex-three{
+    width: auto;
+}
+
+.header-flex-two{
+    display: none;
+}
+.header-conmtainer-align {
+    padding: 10px 10px;
+}
+
+.all-box {
+    width: 95%;
+}
+
+.files-uploades{
+    width: 80%;
+}
+.wole-formin {
+    width: auto;
+}
+}
+/* 
+@media only screen and (min-width:992px){
+    .textarea-width{
+        width: 200%;
+    }
+} */
